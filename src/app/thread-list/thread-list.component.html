@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <button class="btn btn-success pull-right" data-toggle="modal" data-target="#add-new-topic">
+      <i class="glyphicon glyphicon-plus"></i> New Topic
+    </button>
+  </div>
+  <div class="row" style="margin-top: 2%">
+    <table class="table table-default">
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Category</th>
+          <th>Replies</th>
+          <th>Views</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="threadList">
+        <tr *ngFor="let t of threadList">
+          <td>
+            <label>{{t.topic}}</label>
+          </td>
+
+          <td><span class="label label-primary">{{t.category}}</span></td>
+          <td>{{t.replies.length}}</td>
+          <td>{{t.views}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="add-new-topic" class="modal fade" tabindex="-1" role="dialog">
+    <app-add-topic></app-add-topic>  
+  </div><!-- /.modal -->
+  
+</div>
